@@ -12,8 +12,8 @@ public class Main {
     public static void main(String[] args) {
         int opcion;
         do {
-            System.out.println("¿Usted es alumno o Maestro?");
-            System.out.println("1. Docente");
+            System.out.println("¿Quiere ingresar como alumno o Maestro?");
+            System.out.println("1. Profesor");
             System.out.println("2. Alumno");
             System.out.println("3. Salir");
             System.out.print("Opcion: ");
@@ -25,7 +25,7 @@ public class Main {
                     do {
                         System.out.println("1. Dar de alta al alumno");
                         System.out.println("2. Agregar calificaciones");
-                        System.out.println("3. Ver todos los alumnos dados de alta");
+                        System.out.println("3. Ver todos los alumnos ingresados");
                         System.out.println("4. Salir");
                         System.out.print("Opcion: ");
                         choose = teclado.nextInt();
@@ -43,7 +43,7 @@ public class Main {
                             case 4:
                                 break;
                             default:
-                                System.out.println("Ingrese una opcion valida");
+                                System.out.println("Ingrese una opción valida");
                                 break;
                         }
                     } while (choose != 4);
@@ -51,10 +51,10 @@ public class Main {
                 case 2:
                     int escoger;
                     do {
-                        System.out.println("1. Ver calificacion del primer corte");
-                        System.out.println("2. Ver calificacion del segundo corte");
-                        System.out.println("3. Ver calificacion del tercer corte");
-                        System.out.println("4. Ver promedio");
+                        System.out.println("1. Ver la calificación del primer corte");
+                        System.out.println("2. Ver la calificación del segundo corte");
+                        System.out.println("3. Ver la calificación del tercer corte");
+                        System.out.println("4. Ver el promedio");
                         System.out.println("5. salir");
                         System.out.print("Opcion: ");
                         escoger = teclado.nextInt();
@@ -75,7 +75,7 @@ public class Main {
                             case 5:
                                 break;
                             default:
-                                System.out.println("Ingrese una opcion valida");
+                                System.out.println("Ingrese una opción valida");
                                 break;
                         }
                     } while (escoger != 5);
@@ -83,7 +83,7 @@ public class Main {
                 case 3:
                     break;
                 default:
-                    System.out.println("Ingrese una opcion valida");
+                    System.out.println("Ingrese una opción valida");
                     break;
             }
         } while (opcion != 3);
@@ -173,7 +173,7 @@ public class Main {
             float promedio = suma / count;
             System.out.println("Promedio de calificaciones: " + promedio);
         } else {
-            System.out.println("No hay calificaciones para calcular el promedio.");
+            System.out.println("No hay calificaciones para hacer el calculo.");
         }
     }
 
