@@ -9,25 +9,25 @@ public class Calificacion {
     public float promedio() {
         return (calificacion1 + calificacion2 + calificacion3) / 3;
     }
-    /*public float getCalificacion1() {
-        return Calificacion1;
-    }*/
+    public float getCalificacion1() {
+        return calificacion1;
+    }
 
     public void setCalificacion1(float calificacion1) {
         this.calificacion1 = calificacion1;
     }
 
-    /*public float getCalificacion2() {
-        return Calificacion2;
-    }*/
+    public float getCalificacion2() {
+        return calificacion2;
+    }
 
     public void setCalificacion2(float calificacion2) {
         this.calificacion2 = calificacion2;
     }
 
-    /*public float getCalificacion3() {
-        return Calificacion3;
-    }*/
+    public float getCalificacion3() {
+        return calificacion3;
+    }
 
     public void setCalificacion3(float calificacion3) {
         this.   calificacion3 = calificacion3;

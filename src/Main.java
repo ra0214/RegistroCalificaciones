@@ -5,9 +5,9 @@ import Models.*;
 public class Main {
     private static Scanner teclado = new Scanner(System.in);
     private static ArrayList<Estudiante> listaEstudiantes = new ArrayList<>();
-    private static ArrayList<Calificacion> listaCalificaciones1 = new ArrayList<>();
-    private static ArrayList<Calificacion> listaCalificaciones2 = new ArrayList<>();
-    private static ArrayList<Calificacion> listaCalificaciones3 = new ArrayList<>();
+    private static ArrayList<Calificacion> Calificaciones1 = new ArrayList<>();
+    private static ArrayList<Calificacion> Calificaciones2 = new ArrayList<>();
+    private static ArrayList<Calificacion> Calificaciones3 = new ArrayList<>();
 
     public static void main(String[] args) {
         int opcion;
@@ -49,25 +49,21 @@ public class Main {
                     } while (choose != 4);
                     break;
                 case 2:
-                    int escoger;
+                    int escogerCorte;
                     do {
-                        System.out.println("1. Ver la calificación del primer corte");
-                        System.out.println("2. Ver la calificación del segundo corte");
-                        System.out.println("3. Ver la calificación del tercer corte");
-                        System.out.println("4. Ver el promedio");
+                        System.out.println("1. Ver calificacion del primer corte");
+                        System.out.println("2. Ver calificacion del segundo corte");
+                        System.out.println("3. Ver calificacion del tercer corte");
+                        System.out.println("4. Ver promedio");
                         System.out.println("5. salir");
                         System.out.print("Opcion: ");
-                        escoger = teclado.nextInt();
+                        escogerCorte = teclado.nextInt();
 
-                        switch (escoger) {
+                        switch (escogerCorte) {
                             case 1:
-                                verCalificaciones(listaCalificaciones1);
-                                break;
                             case 2:
-                                verCalificaciones(listaCalificaciones2);
-                                break;
                             case 3:
-                                verCalificaciones(listaCalificaciones3);
+                                verCalificaciones(escogerCorte);
                                 break;
                             case 4:
                                 verPromedio();
@@ -78,7 +74,7 @@ public class Main {
                                 System.out.println("Ingrese una opción valida");
                                 break;
                         }
-                    } while (escoger != 5);
+                    } while (escogerCorte != 5);
                     break;
                 case 3:
                     break;
@@ -123,17 +119,17 @@ public class Main {
         System.out.println("Ingrese la calificacion del primer corte: ");
         float calificacion1 = teclado.nextFloat();
         calificacion.setCalificacion1(calificacion1);
-        listaCalificaciones1.add(calificacion);
+        Calificaciones1.add(calificacion);
 
         System.out.println("Ingrese la calificacion del segundo corte: ");
         float calificacion2 = teclado.nextFloat();
         calificacion.setCalificacion2(calificacion2);
-        listaCalificaciones2.add(calificacion);
+        Calificaciones2.add(calificacion);
 
         System.out.println("Ingrese la calificacion del tercer corte: ");
         float calificacion3 = teclado.nextFloat();
         calificacion.setCalificacion3(calificacion3);
-        listaCalificaciones3.add(calificacion);
+        Calificaciones3.add(calificacion);
 
         System.out.println("Calificaciones agregadas exitosamente.");
     }
@@ -144,9 +140,36 @@ public class Main {
         }
     }
 
-    public static void verCalificaciones(ArrayList<Calificacion> listaCalificaciones) {
-        for (Calificacion calificacion : listaCalificaciones) {
-            System.out.println(calificacion);
+    public static void verCalificaciones(int corte) {
+        ArrayList<Calificacion> Calificaciones;
+
+        switch (corte) {
+            case 1:
+                Calificaciones = Calificaciones1;
+                break;
+            case 2:
+                Calificaciones = Calificaciones2;
+                break;
+            case 3:
+                Calificaciones = Calificaciones3;
+                break;
+            default:
+                System.out.println("Corte no válido.");
+                return;
+        }
+
+        for (Calificacion calificacion : Calificaciones) {
+            switch (corte) {
+                case 1:
+                    System.out.println("Calificacion del primer corte: " + calificacion.getCalificacion1());
+                    break;
+                case 2:
+                    System.out.println("Calificacion del segundo corte: " + calificacion.getCalificacion2());
+                    break;
+                case 3:
+                    System.out.println("Calificacion del tercer corte: " + calificacion.getCalificacion3());
+                    break;
+            }
         }
     }
 
@@ -154,17 +177,17 @@ public class Main {
         float suma = 0;
         int count = 0;
 
-        for (Calificacion calificacion1 : listaCalificaciones1) {
+        for (Calificacion calificacion1 : Calificaciones1) {
             suma += calificacion1.promedio();
             count++;
         }
 
-        for (Calificacion calificacion2 : listaCalificaciones2) {
+        for (Calificacion calificacion2 : Calificaciones2) {
             suma += calificacion2.promedio();
             count++;
         }
 
-        for (Calificacion calificacion3 : listaCalificaciones3) {
+        for (Calificacion calificacion3 : Calificaciones3) {
             suma += calificacion3.promedio();
             count++;
         }
